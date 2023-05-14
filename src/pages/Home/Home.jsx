@@ -1,14 +1,16 @@
+import { useLoaderData } from "react-router-dom";
 import AboutSection from "./AboutSection";
 import Banner from "./Banner";
 import ServiceSection from "./ServiceSection";
 
 
 const Home = () => {
+    const services = useLoaderData();
     return (
         <div>
             <Banner></Banner>
             <AboutSection></AboutSection>
-            <ServiceSection></ServiceSection>
+            <ServiceSection services={services}></ServiceSection>
         </div>
     );
 };

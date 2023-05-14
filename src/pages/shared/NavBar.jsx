@@ -22,6 +22,8 @@ const NavBar = () => {
         <li><Link>Blog</Link></li>
         <li><Link>Services</Link></li>
         <li><Link>Contact</Link></li>
+        {user && <li><Link to='/bookings'>My Bookings</Link></li>}
+
     </>
     return (
         <div className="navbar max-w-6xl mx-auto px-4 bg-base-100">

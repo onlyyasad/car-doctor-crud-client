@@ -1,16 +1,9 @@
-import { useEffect, useState } from "react";
+
 import ServicesCard from "./ServicesCard";
 
 
-const ServiceSection = () => {
-    const [services, setServices] = useState([]);
-    useEffect(() => {
-        fetch('services.json')
-        .then(res => res.json())
-        .then(data => setServices(data))
-    }, [])
-
-    console.log(services)
+const ServiceSection = ({services}) => {
+        
     return (
         <div className="max-w-6xl mx-auto text-center space-y-6 my-20">
             <h3 className='font-bold text-xl mb-4 text-orange-600'>Service</h3>

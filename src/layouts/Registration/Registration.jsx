@@ -3,6 +3,7 @@ import loginImg from "../../assets/images/login/login.svg"
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProviders";
 import { updateProfile } from "firebase/auth";
+import SocialLogin from "../../pages/shared/SocialLogin";
 
 
 const Registration = () => {
@@ -66,6 +67,7 @@ const Registration = () => {
                         <div className="form-control mt-6">
                             <button type="submit" className="btn btn-primary">Sign Up</button>
                         </div>
+                        <SocialLogin></SocialLogin>
                     </form>
                 </div>
             </div>

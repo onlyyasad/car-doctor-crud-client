@@ -1,13 +1,16 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import loginImg from "../../assets/images/login/login.svg"
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProviders";
+import SocialLogin from "../../pages/shared/SocialLogin";
 
 const Login = () => {
 
     const {loginUser} = useContext(AuthContext);
 
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location?.state?.from?.pathname || "/";
 
     const handleLogin = event => {
         event.preventDefault();
@@ -15,11 +18,9 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         loginUser(email, password)
-        .then(result =>{
-            const user = result.user;
+        .then(() =>{
             form.reset();
-            alert("Login Successfull!")
-            navigate("/")
+            navigate(from, {replace: true})
         })
         .catch(error => console.log(error.message))
 
@@ -54,8 +55,10 @@ const Login = () => {
                         <div className="form-control mt-6">
                             <button type="submit" className="btn btn-primary">Login</button>
                         </div>
+                        <SocialLogin></SocialLogin>
                     </form>
                 </div>
+                
             </div>
         </div>
     );
